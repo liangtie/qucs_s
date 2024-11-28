@@ -3,6 +3,12 @@ PROJECT(qucs-suite CXX)
 
 set(QUCS_NAME "qucs-s")
 
+if(MSVC)
+  set(WITH_QT6 ON)
+  set(CMAKE_CXX_STANDARD 20)
+  set(CMAKE_CXX_FLAGS "/Zc:__cplusplus")
+endif()
+
 # Prohibit in-source builds
 if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
   message(
